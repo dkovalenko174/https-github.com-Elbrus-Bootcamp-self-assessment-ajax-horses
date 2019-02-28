@@ -2,36 +2,32 @@
 
 const fs = require('fs');
 const path = require('path');
-const Sequelize = require('sequelize');
+const mongoose = require('mongoose');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 
-let sequelize;
 if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+  mongoose.connect(
+    process.env[config.use_env_variable],
+    { useNewUrlParser: true }
+  );
 } else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
+  const { host, port, database, username, password } = config;
 
-fs
-  .readdirSync(__dirname)
-  .filter(file => {
-    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
-  })
-  .forEach(file => {
-    const model = sequelize['import'](path.join(__dirname, file));
-    db[model.name] = model;
-  });
+  if (username) {
+    mongoose.connect(
+      `mongodb://${username}:${password}@${host}:${port}/${database}`,
+      { useNewUrlParser: true }
+    );
+  } else {
+    mongoose.connect(
+      `mongodb://${host}:${port}/${database}`,
+      { useNewUrlParser: true }
+    );
+  };
+};
 
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
-});
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
-
-module.exports = db;
+module.exports = mongoose.connection;

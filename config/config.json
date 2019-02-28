@@ -1,11 +1,8 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "postgres",
-    "database": "database_horses",
-    "host": "127.0.0.1",
-    "dialect": "postgres",
-    "operatorsAliases": "false"
+    "host": "localhost",
+    "port": 27017,
+    "database": "horses"
   },
   "test": {
     "username": "postgres",

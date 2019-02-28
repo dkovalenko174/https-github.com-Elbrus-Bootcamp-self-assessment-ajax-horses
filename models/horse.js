@@ -1,12 +1,12 @@
-'use strict';
-module.exports = (sequelize, DataTypes) => {
-  const horse = sequelize.define('horse', {
-    name: DataTypes.STRING,
-    breed: DataTypes.STRING,
-    age: DataTypes.INTEGER
-  }, {});
-  horse.associate = function(models) {
-    // associations can be defined here
-  };
-  return horse;
-};
+'use strict'
+const mongoose = require('mongoose');
+
+
+const horseSchema = new mongoose.Schema({
+  name: String,
+  breed: String,
+  age: Number
+});
+
+
+module.exports = mongoose.model('Horse', horseSchema);
