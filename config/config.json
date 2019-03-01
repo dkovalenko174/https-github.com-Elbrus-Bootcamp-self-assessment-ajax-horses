@@ -5,17 +5,15 @@
     "database": "horses"
   },
   "test": {
-    "username": "postgres",
-    "password": "postgres",
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "host": "localhost",
+    "port": 27017,
+    "database": "testHorses"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "prodSecretUser",
+    "password": "nobodyKnows",
+    "host": "localhost",
+    "port": 27017,
+    "database": "horses"
   }
 }
