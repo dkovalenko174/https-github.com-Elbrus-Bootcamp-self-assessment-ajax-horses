@@ -1,6 +1,5 @@
-'use strict';
-const connection = require('../models/index');
-const Horse = require('../models/horse');
+const { disconect } = require('../db/connect');
+const Horse = require('../db/models/horse');
 
 
 Horse.insertMany([
@@ -47,5 +46,5 @@ Horse.insertMany([
         updatedAt: new Date()
     },
 ]).then(() => {
-    connection.close();
+    disconect();
 });
