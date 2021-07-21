@@ -10,7 +10,6 @@ const horsesRouter = require('./routes/horse');
 const app = express();
 const PORT = 3000;
 
-// Тут должно быть подключение к БД (загляни в './db/connect')
 
 
 // view engine setup
