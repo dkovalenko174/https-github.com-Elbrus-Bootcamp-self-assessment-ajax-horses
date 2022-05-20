@@ -3,7 +3,7 @@ const Layout = require('../Layout');
 
 module.exports = function ShowHorse({ horse }) {
   return (
-    <Layout title="Page title">
+    <Layout>
       <h1 className="big">{horse.name}</h1>
       <ul className="list">
         <li className="list-item col-1-3">

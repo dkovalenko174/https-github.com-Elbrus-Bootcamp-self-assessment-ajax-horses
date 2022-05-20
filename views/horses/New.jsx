@@ -3,7 +3,7 @@ const Layout = require('../Layout');
 
 module.exports = function NewHorse({ error }) {
   return (
-    <Layout title="Page title">
+    <Layout>
       <h1 className="big">Add a Horse</h1>
 
       {error && (
