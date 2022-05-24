@@ -8,7 +8,7 @@ module.exports = function Horses({ horses }) {
 
       <ul className="list">
         {horses.map((horse) => (
-          <li className="list-item col-1-2">
+          <li className="list-item col-1-2" key={horse.id}>
             <a className="big fancy-text light-link" href={`/horses/${horse.id}`}>{horse.name}</a>
           </li>
         ))}
